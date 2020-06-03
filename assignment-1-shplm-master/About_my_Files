@@ -1,0 +1,15 @@
+In current directory, you can type...
+
+make:
+	Compile and generate the executable file
+
+make test:
+	remove all exist .txt files, generated reading text files for relevant python code
+
+make print:
+	print out each write in python code result by my code
+
+make check:
+	print out each provided result by Dr. Rob Hess
+
+

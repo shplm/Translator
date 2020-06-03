@@ -1,0 +1,41 @@
+Zongyan Lu
+CS 480
+Final Project Design report
+
+
+Thanks to Dr. Hess example code, most of my skeleton code is built by his lecture notes.
+
+The main implementation has added in function:
+'llvm::Value* generateGVSpec', and
+'llvm::Value* LHS_assign'
+
+Followed by Dr. Hess's hint, I reconstructed his "generateGVSpec" recursively to fetch all nodes in my code. And "LHS_assign" is to recognize and fetch data either from the root and all leaves. Specifically, I used those labeled name from parser.y to indetify them in my ast.cpp. For example, some nodes started by "Identifier: ". So, I searched the index to verify them in my code.
+
+
+
+In my code, I also did the optimization and generate object code in my program. But I did not handle any "if", "else if", "else", "while", and "break" conditions.
+
+Besides, I realized my compiler results have different orders with Dr. Hess results. Probably it will make some points deduction.
+
+One small thing, my printout title is "define void @foo()" rather than "define internal void @main()". I don't know why I can't generate 'internal void' in my program, but I have to change '@foo()' to '@main()' to prevent calling duplicated main() function in test.cpp.
+
+
+
+
+
+When in my current directory, type:
+
+'make'   -- compiler and generate llvm executable file
+
+'make run1'  -- run and printout the results to the screen for p1.py by llvm
+
+'make check1' -- run and store the results into sample1.ll and compare with p1.ll
+
+'make opt' -- run all three llvm optimized IR
+
+'make test' -- generate object code for current output.o llvm IR file. This command must run after 'make run#' As my testing, it always prints out 0
+
+'make clean' -- clean all temporary files on the current directory
+
+
+Let me know if my program has another questions!
